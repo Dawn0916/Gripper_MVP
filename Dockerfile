@@ -42,7 +42,11 @@ ENV PYBULLET_GUI=1
 ENV DISPLAY=:1
 
 # Start desktop + VNC + noVNC, then run your program
-COPY --chmod=755 start.sh /app/start.sh
+#COPY --chmod=755 start.sh /app/start.sh
+COPY start.sh /app/start.sh
+USER root
+RUN sed -i 's/\r$//' /app/start.sh && chmod +x /app/start.sh
+USER $MAMBA_USER
 
 CMD ["/app/start.sh"]
 
