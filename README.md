@@ -1,17 +1,20 @@
 # Gripper_MVP
 Gripper_MVP: Force-limited pinch
 
-# ###### Create a conda environment and install PyBullet (conda-forge)
+## Clone the code in github
+git clone https://github.com/Dawn0916/Gripper_MVP.git
 
+
+# ###### Create a conda environment and install PyBullet (conda-forge)
 ## In VS Code terminal (or macOS Terminal):
-conda create -n pb python=3.12 -y
+<!-- conda create -n pb python=3.12 -y -->
 conda env create -f environment.yml
 
 ## Activate conda Environment:
 source /opt/homebrew/Caskroom/miniforge/base/bin/activate pb
 
-## Download dependencies: ???? 
-conda install -c conda-forge pybullet numpy -y
+<!-- ## Download dependencies: ???? 
+conda install -c conda-forge pybullet numpy -y -->
 
 ## Run the code:
 python main.py
@@ -39,8 +42,8 @@ kill -9 PID
 Replace PID with the actual process ID found in the previous command.
 
 # Watch the output. You should see lines like:
-- go to broswer http://localhost:8080
-- click on vnc.html
+- go to broswer 'http://localhost:8080'
+- click on 'vnc.html'
 - you will see 'noVNC connect', here click 'connect' button
 
 
