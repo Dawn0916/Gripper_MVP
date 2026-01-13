@@ -8,7 +8,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
 # Copy only environment first (better caching)
-COPY environment.yml /app/environment.yml
+# COPY environment.yml /app/environment.yml
+
+COPY environment.docker.yml /app/environment.docker.yml
+
+
 
 # Install OS libs that PyBullet often needs (OpenGL-related).
 # Note: micromamba image is Debian/Ubuntu-based.
@@ -21,7 +25,9 @@ USER $MAMBA_USER
 
 # Create conda env from environment.yml
 # (Name will come from your environment.yml "name:" field)
-RUN micromamba env create -f /app/environment.yml -y && \
+# RUN micromamba env create -f /app/environment.yml -y && \
+#     micromamba clean --all --yes
+RUN micromamba env create -f /app/environment.docker.yml -y && \
     micromamba clean --all --yes
 
 # Make the env the default for subsequent RUN/CMD
