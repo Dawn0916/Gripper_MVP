@@ -1,7 +1,8 @@
 # Force-Limited Parallel Gripper in PyBullet
 Gripper_MVP: Force-limited pinch
 
-## Clone the code in github
+## Clone the Repository
+First, download the source code from GitHub:
 ```bash
 git clone https://github.com/Dawn0916/Gripper_MVP.git
 cd Gripper_MVP
@@ -22,7 +23,7 @@ Once the build is complete, start the container:
 docker run --rm -p 8080:8080 gripper-sim-vnc
 ```
 
-## View the PyBullet visualization:
+### View the PyBullet visualization:
 Open a web browser and go to:
 ```
 http://localhost:8080/vnc.html
