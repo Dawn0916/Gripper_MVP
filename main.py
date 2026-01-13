@@ -11,14 +11,17 @@ from sim.fsm import FSM
 
 def main():
     prm = Params()
-    # setup_world(dt=prm.dt, gui=True)
-    # set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
 
-    use_gui = os.environ.get("PYBULLET_GUI", "0") == "1"
-    setup_world(dt=prm.dt, gui=use_gui)
+    setup_world(dt=prm.dt, gui=True)
+    set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
 
-    if use_gui:
-        set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
+    # use_gui = os.environ.get("PYBULLET_GUI", "0") == "1"
+    # print(f"Using GUI: {use_gui}")
+    # setup_world(dt=prm.dt, gui=use_gui)
+
+    # if use_gui:
+    #     set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
+    
     
 
     # Create gripper with lift joint
