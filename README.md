@@ -1,5 +1,7 @@
 # Force-Limited Parallel Gripper in PyBullet
-Gripper_MVP: Force-limited pinch
+This repository implements a **force-limited parallel gripper** in **PyBullet**.
+The system performs a **pinch-and-lift task** using physically simulated joints and a
+**finite-state machine (FSM)**, without teleportation or kinematic shortcuts.
 
 ## Clone the Repository
 First, download the source code from GitHub:
@@ -18,6 +20,7 @@ Run the following command inside the project directory:
 ```bash
 docker build -t gripper-sim-vnc .
 ```
+### Run the simulation
 Once the build is complete, start the container:
 ```bash
 docker run --rm -p 8080:8080 gripper-sim-vnc
