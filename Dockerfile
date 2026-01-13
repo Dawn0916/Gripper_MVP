@@ -8,8 +8,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
 # Copy only environment first (better caching)
-# COPY environment.yml /app/environment.yml
-
 COPY environment.docker.yml /app/environment.docker.yml
 
 
@@ -23,15 +21,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 USER $MAMBA_USER
 
-# Create conda env from environment.yml
-# (Name will come from your environment.yml "name:" field)
-# RUN micromamba env create -f /app/environment.yml -y && \
-#     micromamba clean --all --yes
+# Create conda env from environment.docker.yml
 RUN micromamba env create -f /app/environment.docker.yml -y && \
     micromamba clean --all --yes
 
 # Make the env the default for subsequent RUN/CMD
-# If your env name is not "pb", change it here to match environment.yml
 ARG ENV_NAME=pb
 ENV CONDA_DEFAULT_ENV=${ENV_NAME}
 ENV PATH=/opt/conda/envs/${ENV_NAME}/bin:$PATH

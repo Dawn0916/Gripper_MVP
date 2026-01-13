@@ -11,3 +11,14 @@ source /opt/homebrew/Caskroom/miniforge/base/bin/activate pb
 
 Download dependencies:
 conda install -c conda-forge pybullet numpy -y
+
+# #################### Docker
+# Download Docker from 
+https://www.docker.com/products/docker-desktop/
+
+Install Docker
+
+# Builder docker:
+docker build --no-cache -t gripper-sim .
+
+# Run docker 
