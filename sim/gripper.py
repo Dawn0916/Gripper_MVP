@@ -3,7 +3,7 @@ import pybullet as p
 def create_parallel_gripper_with_lift(
     base_pos=(0.50, 0.0, 0.03),
     base_euler=(0.0, 0.0, 0.0),
-    gap_open=0.06,
+    gap_open=0.10,
 ) -> int:
     """
     Multibody structure (joint indices):
@@ -28,10 +28,9 @@ def create_parallel_gripper_with_lift(
     carriage_col = p.createCollisionShape(p.GEOM_BOX, halfExtents=carriage_size)
     jaw_col      = p.createCollisionShape(p.GEOM_BOX, halfExtents=jaw_size)
 
-    anchor_vis   = p.createVisualShape(p.GEOM_BOX, halfExtents=anchor_size, rgbaColor=[0.2, 0.2, 0.2, 1])
-    carriage_vis = p.createVisualShape(p.GEOM_BOX, halfExtents=carriage_size, rgbaColor=[0.3, 0.3, 0.3, 1])
-    # jaw_vis      = p.createVisualShape(p.GEOM_BOX, halfExtents=jaw_size, rgbaColor=[0.85, 0.85, 0.85, 1])
-    jaw_vis      = p.createVisualShape(p.GEOM_BOX, halfExtents=jaw_size, rgbaColor=[0.35, 0.35, 0.35, 1])
+    anchor_vis   = p.createVisualShape(p.GEOM_BOX, halfExtents=anchor_size, rgbaColor=[0.01, 0.01, 0.01, 1])
+    carriage_vis = p.createVisualShape(p.GEOM_BOX, halfExtents=carriage_size, rgbaColor=[0.45, 0.45, 0.45, 1])
+    jaw_vis      = p.createVisualShape(p.GEOM_BOX, halfExtents=jaw_size, rgbaColor=[0.5, 0.5, 0.5, 1])
 
     half_gap = gap_open / 2.0
 

@@ -5,8 +5,10 @@ class Params:
     dt: float = 1.0 / 240.0 #240 Hz
 
     # Force targets (N)
-    F_des: float = 6.0
-    F_max: float = 10.0  # hard cap
+    # F_des: float = 6.0
+    # F_max: float = 10.0  # hard cap
+    F_des: float = 80.0
+    F_max: float = 90.0  # hard cap
 
     # Force regulation
     k_force: float = 0.0008   # (meters per Newton) mapped into jaw travel command
@@ -16,6 +18,7 @@ class Params:
     contact_threshold: float = 0.5
     stable_band: float = 1.0
     settle_steps: int = 120  # ~0.5s at 240Hz
+    # settle_steps: int = 5 # for faster testing
 
     # Jaw command convention for this simplified gripper:
     # q_cmd = 0.0  -> fully open

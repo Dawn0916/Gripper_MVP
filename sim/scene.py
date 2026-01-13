@@ -4,9 +4,9 @@ import pybullet_data
 def setup_world(dt: float, gui: bool = True) -> int:
     cid = p.connect(p.GUI if gui else p.DIRECT)
     # Hide the side camera previews / GUI overlays
-    p.configureDebugVisualizer(p.COV_ENABLE_RGB_BUFFER_PREVIEW, 0)
-    p.configureDebugVisualizer(p.COV_ENABLE_DEPTH_BUFFER_PREVIEW, 0)
-    p.configureDebugVisualizer(p.COV_ENABLE_SEGMENTATION_MARK_PREVIEW, 0)
+    # p.configureDebugVisualizer(p.COV_ENABLE_RGB_BUFFER_PREVIEW, 0)
+    # p.configureDebugVisualizer(p.COV_ENABLE_DEPTH_BUFFER_PREVIEW, 0)
+    # p.configureDebugVisualizer(p.COV_ENABLE_SEGMENTATION_MARK_PREVIEW, 0)
     # Hide other UI
     p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)          # hides most of the UI
 
