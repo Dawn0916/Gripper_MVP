@@ -4,7 +4,7 @@ The system performs a **pinch-and-lift task** using physically simulated joints 
 **finite-state machine (FSM)**, without teleportation or kinematic shortcuts.
 
 ## How to run the code?
-### Step 1: Clone the Repository
+#### Step 1: Clone the Repository
 First, download the source code from GitHub:
 ```bash
 git clone https://github.com/Dawn0916/Gripper_MVP.git
