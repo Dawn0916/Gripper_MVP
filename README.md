@@ -2,28 +2,33 @@
 Gripper_MVP: Force-limited pinch
 
 ## Clone the code in github
+```bash
 git clone https://github.com/Dawn0916/Gripper_MVP.git
+cd Gripper_MVP
+```
 
 ## 🐳 Run with Docker + GUI
 ### Download and install Docker if not yet
 Find Docker here: https://www.docker.com/products/docker-desktop/
 
 
-### Build Docker:
+### Build the Docker image:
+Run the following command inside the project directory:
 ```bash
 docker build -t gripper-sim-vnc .
 ```
-## Run Docker:
+Once the build is complete, start the container:
 ```bash
 docker run --rm -p 8080:8080 gripper-sim-vnc
 ```
 
-## Open in browser to see the PyBullet visualization:
-
+## View the PyBullet visualization:
+Open a web browser and go to:
 ```
 http://localhost:8080/vnc.html
 ```
-
+You will see a Linux desktop running inside your browser.
+The PyBullet GUI window should already be open and running.
 
 
 
