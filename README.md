@@ -48,19 +48,3 @@ The PyBullet GUI window should already be open and running.
 - kill the process
 `kill -9 PID´
 Here, replace PID with the actual process ID found in the previous command.
-
----
-
-# ###### Create a conda environment and install PyBullet (conda-forge)
-## In VS Code terminal (or macOS Terminal):
-<!-- conda create -n pb python=3.12 -y -->
-conda env create -f environment.yml
-
-## Activate conda Environment:
-source /opt/homebrew/Caskroom/miniforge/base/bin/activate pb
-
-<!-- ## Download dependencies: ???? 
-conda install -c conda-forge pybullet numpy -y -->
-
-## Run the code:
-python main.py
