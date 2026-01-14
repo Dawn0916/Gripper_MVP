@@ -126,18 +126,23 @@ POSITION_CONTROL was selected instead of torque or velocity control because it:
 Internally, PyBullet implements POSITION_CONTROL as a **PD controller** with a hard force cap,
 making it well suited for force-limited grasping.
 
-## 4. Failure Modes and Safety Considerations
+## 4. Failure Mode and Safety Considerations
 ### Failure Mode: Excessive Force
 A key failure mode in manipulation is applying too much force, which can:
 - Damage the object
 - Cause unstable contacts
 - Lead to unrealistic simulation behavior
   
-In this project, the Failure Mode was implemented by setting a lower desired force and a lower max allowed force threshold:
+In this project, a specific failure mode is defined as follows:
+
+Failure is triggered when the initial contact force peak—occurring during force regulation toward the desired pinch force—exceeds the maximum allowable force threshold (`F_max`).
+This scenario typically arises during the transient phase when the gripper transitions from free motion to contact and attempts to regulate toward the desired force.
+
+To demonstrate this failure mode, conservative force thresholds were intentionally chosen:
 - `F_des: float = 6.0`
 - `F_max: float = 10.0`
       
-And the Failure-free settings are:
+For comparison, a failure-free configuration uses higher force limits:
 - `F_des: float = 80.0`
 - `F_max: float = 90.0`
 
@@ -154,6 +159,15 @@ These safety mechanisms ensure:
 - Failures are handled gracefully
 - The behavior is closer to what would be required on real hardware
 
+### Future Work
+An important extension of this work is **parameter adaptation following failure recovery**.
+
+Rather than retrying with fixed force thresholds, future versions of the system could:
+- Adapt `F_des` and `F_max` based on previous failures
+- Learn safer force profiles for different objects
+- Use data-driven or reinforcement learning approaches to optimize grasp success
+
+This makes the failure recovery mechanism a natural entry point for introducing **AI-based adaptation**, while retaining the current system as a strong, interpretable baseline.
 
 ## 5. Where AI is used (or why not)?
 No machine learning or AI models are used in this project.
