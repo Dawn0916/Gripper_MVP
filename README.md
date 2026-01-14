@@ -111,7 +111,7 @@ In this project, the Failure Mode was implemented by setting a lower desired for
 - `F_des: float = 6.0`
 - `F_max: float = 10.0`
       
-Later, the Failure-free settings are:
+And the Failure-free settings are:
 - `F_des: float = 80.0`
 - `F_max: float = 90.0`
 
