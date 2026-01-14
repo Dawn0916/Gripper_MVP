@@ -20,12 +20,9 @@ need to install Python or PyBullet manually.
 1. Download Docker Desktop from:
 https://www.docker.com/products/docker-desktop/
 2. Install Docker and start Docker Desktop. 
-Make sure Docker is running before continuing. You can verify Docker is working by running: 
-```bash
-docker --version
-```
+Make sure Docker is running before continuing. 
 
-#### Step 3: Build the Docker image:
+#### Step 3: Build the Docker image
 Run the following command inside the project directory:
 ```bash
 docker build -t gripper-sim-vnc .
@@ -35,7 +32,7 @@ Once the build is complete, start the container:
 ```bash
 docker run --rm -p 8080:8080 gripper-sim-vnc
 ```
-#### Step 5: View the PyBullet visualization (Do this ASAP after Step 4):
+#### Step 5: View the PyBullet visualization (Do this ASAP after Step 4)
 Open a web browser and go to:
 ```
 http://localhost:8080/vnc.html
@@ -81,7 +78,6 @@ The MVP focuses on interaction correctness rather than appearance.
 - All motions are physically simulated (no teleportation)
 
 ### 3.2 Sensing Assumptions
-- No vision or tactile sensors are used
 - Contact force is estimated indirectly using PyBullet contact normals
 - The summed normal forces on fingertip links serve as a force proxy
 - This is a common assumption in simulation and early-stage controllers
