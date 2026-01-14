@@ -81,6 +81,7 @@ The MVP focuses on interaction correctness rather than appearance.
 - All motions are physically simulated (no teleportation)
 
 ### 3.2 Sensing Assumptions
+Joint + contact / force proxy sensing assumption was selected:
 - Contact force is estimated indirectly using PyBullet contact normals
 - The summed normal forces on fingertip links serve as a force proxy
 
