@@ -20,7 +20,10 @@ need to install Python or PyBullet manually.
 1. Download Docker Desktop from:
 https://www.docker.com/products/docker-desktop/
 2. Install Docker and start Docker Desktop. 
-Make sure Docker is running before continuing. 
+Make sure Docker is running before continuing.
+
+This project uses Docker to provide a self-contained runtime environment, so no separate dependency installation is required.
+For reference, all dependencies are listed in the `environment.docker.yml` file.
 
 #### Step 3: Build the Docker image
 Run the following command inside the project directory:
