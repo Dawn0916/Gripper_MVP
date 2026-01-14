@@ -96,10 +96,10 @@ This explicit FSM design:
 - Makes safety and failure handling explicit
 
 ### 3.4 Control Policy
-This project uses a **classical position-based control policy with explicit force limits**
+This project uses a **position-based control policy with explicit force limits**
 to implement safe and physically realistic manipulation.
 
-##### Jaw (Pinch) Control
+#### Jaw (Pinch) Control
 The two gripper jaws are controlled using **PyBullet POSITION_CONTROL** with a hard force cap.
 
 - Each jaw joint is a **prismatic joint** (linear motion)
