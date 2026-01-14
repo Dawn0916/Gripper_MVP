@@ -35,7 +35,7 @@ Once the build is complete, start the container:
 ```bash
 docker run --rm -p 8080:8080 gripper-sim-vnc
 ```
-#### Step 5: View the PyBullet visualization:
+#### Step 5: View the PyBullet visualization (Do this ASAP after Step 4):
 Open a web browser and go to:
 ```
 http://localhost:8080/vnc.html
