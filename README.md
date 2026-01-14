@@ -100,16 +100,7 @@ This explicit FSM design:
 - Makes safety and failure handling explicit
 - Is well-suited for MVP systems and real-world robotics
 
-## 4. Where AI is used (or why not)?
-No machine learning or AI models are used in this project.
-This is a deliberate design choice:
-- The task can be solved reliably with classical control and state machines
-- Using AI would add complexity without improving safety or interpretability
-- For an MVP, deterministic behavior and explainability are preferred
-The FSM structure could later be augmented with learning-based components
-(e.g., learned force targets or grasp selection), but this is outside the scope here.
-
-## 5. Failure Modes and Safety Considerations
+## 4. Failure Modes and Safety Considerations
 ### Failure Mode: Excessive Force
 A key failure mode in manipulation is applying too much force, which can:
 - Damage the object
@@ -128,6 +119,16 @@ These safety mechanisms ensure:
 - The gripper never applies unbounded force
 - Failures are handled gracefully
 - The behavior is closer to what would be required on real hardware
+
+
+## 5. Where AI is used (or why not)?
+No machine learning or AI models are used in this project.
+This is a deliberate design choice:
+- The task can be solved reliably with classical control and state machines
+- Using AI would add complexity without improving safety or interpretability
+- For an MVP, deterministic behavior and explainability are preferred
+The FSM structure could later be augmented with learning-based components
+(e.g., learned force targets or grasp selection), but this is outside the scope here.
 
 
 
