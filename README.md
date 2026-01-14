@@ -80,7 +80,7 @@ The MVP focuses on interaction correctness rather than appearance.
 ### 3.2 Sensing Assumptions
 - Contact force is estimated indirectly using PyBullet contact normals
 - The summed normal forces on fingertip links serve as a force proxy
-- This is a common assumption in simulation and early-stage controllers
+
 ### 3.3 Interaction Policy
 The interaction logic is implemented as a Finite State Machine (FSM):
 
@@ -94,7 +94,6 @@ States include:
 This explicit FSM design:
 - Is easy to debug and reason about
 - Makes safety and failure handling explicit
-- Is well-suited for MVP systems and real-world robotics
 
 ## 4. Failure Modes and Safety Considerations
 ### Failure Mode: Excessive Force
