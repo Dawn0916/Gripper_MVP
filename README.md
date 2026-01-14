@@ -1,9 +1,9 @@
 # Force-Limited Parallel Gripper in PyBullet
 This repository implements a **force-limited parallel gripper** in **PyBullet**.
 The system performs a **pinch-and-lift task** using physically simulated joints and a
-**finite-state machine (FSM)**, without teleportation or kinematic shortcuts.
+**finite-state machine (FSM)**.
 
-## How to run the code?
+## 1. How to run the code?
 #### Step 1: Clone the Repository
 First, download the source code from GitHub:
 ```bash
@@ -43,8 +43,31 @@ The PyBullet GUI window should already be open and running.
 
 
 ! When you run the Docker the second time at the same port 8080, you will get the Error: 'Bind for 0.0.0.0:8080 failed: port is already allocated'. Do the following to free the port 8080:
-- Find the process ID (PID) using port 8080
-`lsof -i :8080´
-- kill the process
-`kill -9 PID´
-Here, replace PID with the actual process ID found in the previous command.
+- Find the process ID (PID) using port 8080 by running 
+`lsof -i :8080`
+- kill the process using command
+`kill -9 PID`
+, where, replace `PID` with the actual process ID found in the previous command.
+
+
+## 2. System Design
+
+### 2.1 Hand/Gripper Model
+### 2.2 Sensing Assumptions
+### 2.3 Interaction Policy
+### 2.4 Failure + Mitigation
+
+Notes: README answering:
+○ How to run the code
+○ What you built and why it matters for an MVP
+○ System architecture and assumptions
+○ Where AI is used (or why not)
+○ Failure mode and safety considerations
+
+
+
+
+
+
+
+
