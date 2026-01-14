@@ -135,6 +135,7 @@ This is a deliberate design choice:
 - The task can be solved reliably with classical control and state machines
 - Using AI would add complexity without improving safety or interpretability
 - For an MVP, deterministic behavior and explainability are preferred
+  
 The FSM structure could later be augmented with learning-based components
 (e.g., learned force targets or grasp selection), but this is outside the scope here.
 
