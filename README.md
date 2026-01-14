@@ -87,7 +87,7 @@ The interaction logic is implemented as a Finite State Machine (FSM):
 States include:
 - CLOSE_TO_CONTACT: slowly close until contact is detected
 - FORCE_REGULATE: regulate pinch force toward a desired target
-- HOLD: maintain a stable grasp
+- HOLD: maintain a stable pinch
 - LIFT: lift the object vertically while maintaining force
 - FAIL_RECOVER: open and retry if excessive force is detected
 
