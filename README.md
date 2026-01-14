@@ -108,7 +108,8 @@ A key failure mode in manipulation is applying too much force, which can:
 - Lead to unrealistic simulation behavior
 In the simulation, the Failure Mode was implemented by setting a lower desired force and a lower max allowed force threshold:
     - `F_des: float = 6.0`
-    - `F_max: float = 10.0` 
+    - `F_max: float = 10.0`
+      
 Later, the Failure-free settings are:
     - `F_des: float = 80.0`
     - `F_max: float = 90.0`
