@@ -21,5 +21,6 @@ sleep 1
 echo "noVNC is running: http://localhost:8080"
 echo "Starting PyBullet app..."
 
+sleep 5
 # Run your script (must use p.GUI inside if PYBULLET_GUI=1)
 python main.py
