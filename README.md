@@ -64,7 +64,7 @@ This project implements a minimal force-controlled manipulation system consistin
 - A finite-state machine for control
 
 Why this matters for an MVP:
-- It demonstrates core manipulation skills (grasping, force regulation, lifting)
+- It demonstrates core manipulation skills (pinch, force regulation, lifting)
 - It avoids unnecessary complexity (full robot arm, perception stack, learning models)
 - The same control structure can later scale to more complex robots or real hardware
 The MVP focuses on interaction correctness rather than appearance.
