@@ -12,15 +12,15 @@ from sim.fsm import FSM
 def main():
     prm = Params()
 
-    setup_world(dt=prm.dt, gui=True)
-    set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
+    # setup_world(dt=prm.dt, gui=True)
+    # set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
 
-    # use_gui = os.environ.get("PYBULLET_GUI", "0") == "1"
-    # print(f"Using GUI: {use_gui}")
-    # setup_world(dt=prm.dt, gui=use_gui)
+    use_gui = os.environ.get("PYBULLET_GUI", "0") == "1"
+    print(f"Using GUI: {use_gui}")
+    setup_world(dt=prm.dt, gui=use_gui)
 
-    # if use_gui:
-    #     set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
+    if use_gui:
+        set_camera(target=(0.54, 0.0, 0.04), distance=0.45, yaw=45, pitch=-25) # Move camera closer to see the gripper and object
     
     
 
@@ -61,7 +61,7 @@ def main():
 
         # Sleep to roughly match real-time
         # time.sleep(prm.dt) 
-        time.sleep(0.1)  # ensure at least some sleep to yield to OS
+        time.sleep(0.1)  # ensure at least some sleep to avoid busy loop
 
 
 if __name__ == "__main__":
