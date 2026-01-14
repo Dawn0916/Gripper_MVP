@@ -141,9 +141,9 @@ The FSM structure could later be augmented with learning-based components
 
 
 
-## Demo Videos
+## 6. Demo Videos
 
-### Pinch +  Lift
+### 6.1 Pinch +  Lift
 Picture:
 
 <img width="733" height="373" alt="image" src="https://github.com/user-attachments/assets/a8167d4b-4fb5-49e2-babd-7a8f73d80ebb" />
@@ -152,7 +152,7 @@ Video:
 https://github.com/user-attachments/assets/e99bb258-ce0f-4349-af72-3eecb46a7d49
 
 
-### Failure + Mitigation
+### 6.2 Failure + Mitigation
 Picture:
 
 <img width="733" height="373" alt="image" src="https://github.com/user-attachments/assets/2a39f994-08e6-4c69-af4f-f9b46c2945ad" />
