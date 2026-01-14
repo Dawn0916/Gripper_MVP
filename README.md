@@ -74,8 +74,8 @@ The MVP focuses on interaction correctness rather than appearance.
 ### 3.1 Hand/Gripper Model
 - The gripper is modeled as a PyBullet multibody:
     - One fixed anchor (base)
-    - One prismatic lift joint (vertical motion)
     - Two prismatic jaw joints (parallel closing motion)
+    - One prismatic lift joint (vertical motion)
 
 - Jaw motion is symmetric, creating a parallel pinch
 - All motions are physically simulated (no teleportation)
