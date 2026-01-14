@@ -3,6 +3,10 @@ This repository implements a **force-limited parallel gripper** in **PyBullet**.
 The system performs a **pinch-and-lift task** using physically simulated joints and a
 **finite-state machine (FSM)**.
 
+The goal of this project is to demonstrate a **minimal viable manipulation system (MVP)**
+that emphasizes correct interaction logic, safety, and physical realism rather than
+complex geometry or learning-heavy methods.
+
 ## 1. How to run the code?
 #### Step 1: Clone the Repository
 First, download the source code from GitHub:
@@ -39,30 +43,92 @@ http://localhost:8080/vnc.html
 You will see a Linux desktop running inside your browser.
 The PyBullet GUI window should already be open and running.
 
+#### ⚠️ Port 8080 Already in Use?
+If you see this Error: 
+```nginx
+Bind for 0.0.0.0:8080 failed: port is already allocated.
+```
+Free the port by running:
+```bash
+lsof -i :8080
+kill -9 PID
+```
+Replace `PID` with the actual process ID found in the previous command.
 
 
+## 2. What was built and why it matters for an MVP
+This project implements a minimal force-controlled manipulation system consisting of:
+- A parallel gripper with two fingers (jaws)
+- A vertical lift joint
+- A simple object (box)
+- A finite-state machine for control
 
-! When you run the Docker the second time at the same port 8080, you will get the Error: 'Bind for 0.0.0.0:8080 failed: port is already allocated'. Do the following to free the port 8080:
-- Find the process ID (PID) using port 8080 by running 
-`lsof -i :8080`
-- kill the process using command
-`kill -9 PID`
-, where, replace `PID` with the actual process ID found in the previous command.
+Why this matters for an MVP:
+- It demonstrates core manipulation skills (grasping, force regulation, lifting)
+- It avoids unnecessary complexity (full robot arm, perception stack, learning models)
+- The same control structure can later scale to more complex robots or real hardware
+The MVP focuses on interaction correctness rather than appearance.
 
 
-## 2. System Design
+## 3. System Architecture and Assumptions
+### 3.1 Hand/Gripper Model
+- The gripper is modeled as a PyBullet multibody:
+    - One fixed anchor (base)
+    - One prismatic lift joint (vertical motion)
+    - Two prismatic jaw joints (parallel closing motion)
 
-### 2.1 Hand/Gripper Model
-### 2.2 Sensing Assumptions
-### 2.3 Interaction Policy
-### 2.4 Failure + Mitigation
+- Jaw motion is symmetric, creating a parallel pinch
+- All motions are physically simulated (no teleportation)
 
-Notes: README answering:
-○ How to run the code
-○ What you built and why it matters for an MVP
-○ System architecture and assumptions
-○ Where AI is used (or why not)
-○ Failure mode and safety considerations
+### 3.2 Sensing Assumptions
+- No vision or tactile sensors are used
+- Contact force is estimated indirectly using PyBullet contact normals
+- The summed normal forces on fingertip links serve as a force proxy
+- This is a common assumption in simulation and early-stage controllers
+### 3.3 Interaction Policy
+The interaction logic is implemented as a Finite State Machine (FSM):
+
+States include:
+- CLOSE_TO_CONTACT: slowly close until contact is detected
+- FORCE_REGULATE: regulate pinch force toward a desired target
+- HOLD: maintain a stable grasp
+- LIFT: lift the object vertically while maintaining force
+- FAIL_RECOVER: open and retry if excessive force is detected
+
+This explicit FSM design:
+- Is easy to debug and reason about
+- Makes safety and failure handling explicit
+- Is well-suited for MVP systems and real-world robotics
+
+## 4. Where AI is used (or why not)?
+No machine learning or AI models are used in this project.
+This is a deliberate design choice:
+- The task can be solved reliably with classical control and state machines
+- Using AI would add complexity without improving safety or interpretability
+- For an MVP, deterministic behavior and explainability are preferred
+The FSM structure could later be augmented with learning-based components
+(e.g., learned force targets or grasp selection), but this is outside the scope here.
+
+## 5. Failure Modes and Safety Considerations
+### Failure Mode: Excessive Force
+A key failure mode in manipulation is applying too much force, which can:
+- Damage the object
+- Cause unstable contacts
+- Lead to unrealistic simulation behavior
+
+### Safety Measures Implemented
+- Hard force cap (F_max) enforced in the FSM
+- Jaw motors have a maximum allowable force
+- If measured force exceeds F_max:
+    - The system immediately transitions to FAIL_RECOVER
+    - Jaws open to release pressure
+    - The grasp attempt restarts
+
+These safety mechanisms ensure:
+- The gripper never applies unbounded force
+- Failures are handled gracefully
+- The behavior is closer to what would be required on real hardware
+
 
 
 

@@ -6,7 +6,7 @@ class State(Enum):
     FORCE_REGULATE = auto()
     HOLD = auto()
     LIFT = auto()
-    FAIL_RECOVER = auto() ####### Has this been tested enough? Has it been tested at all?
+    FAIL_RECOVER = auto()
 
 class FSM:
     """
