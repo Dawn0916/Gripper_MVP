@@ -95,6 +95,34 @@ This explicit FSM design:
 - Is easy to debug and reason about
 - Makes safety and failure handling explicit
 
+### 3.4 Control Policy
+This project uses a **classical position-based control policy with explicit force limits**
+to implement safe and physically realistic manipulation.
+
+##### Jaw (Pinch) Control
+The two gripper jaws are controlled using **PyBullet POSITION_CONTROL** with a hard force cap.
+
+- Each jaw joint is a **prismatic joint** (linear motion)
+- A desired jaw position `q_cmd` is commanded
+- A maximum allowable motor force `F_max` limits the applied pinch force
+
+#### Lift Control
+Vertical motion is implemented using a **prismatic lift joint** controlled in
+POSITION_CONTROL.
+
+- A target vertical position `z_cmd` is commanded
+- A separate force limit is applied to the lift joint
+- The object is lifted purely through physical interaction and friction
+
+#### Why POSITION_CONTROL Was Chosen
+POSITION_CONTROL was selected instead of torque or velocity control because it:
+- Is stable and easy to tune for an MVP
+- Provides physically realistic behavior when combined with force limits
+- Allows safe force-limited interaction without complex low-level control
+
+Internally, PyBullet implements POSITION_CONTROL as a **PD controller** with a hard force cap,
+making it well suited for force-limited grasping.
+
 ## 4. Failure Modes and Safety Considerations
 ### Failure Mode: Excessive Force
 A key failure mode in manipulation is applying too much force, which can:
